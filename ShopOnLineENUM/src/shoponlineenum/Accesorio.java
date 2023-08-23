@@ -8,10 +8,10 @@ package shoponlineenum;
  *
  * @author Licha
  */
-public class Accesorio extends Producto{
+public class Accesorio extends Producto implements Importable{
     private double peso;
     private String metal;
-
+    
     public Accesorio(double peso, String metal, String desc, double precio, int cod) {
         super(desc, precio, cod);
         this.peso = peso;
@@ -40,8 +40,19 @@ public class Accesorio extends Producto{
         }else if(precio>=0 && peso<100){
             precioFinal=precio+(precio*3/100);
         }
+        System.out.println("precio antes de impuestos:"+precioFinal);
+        precioFinal = precioFinal + arancelAduanero(precioFinal) + aranceldeTransporte(precioFinal);
+        
         return precioFinal;
     }
     
+    public double arancelAduanero(double precioFinal){
+        double importe = (precioFinal*10)/100;
+        return importe;
+    }
     
+    public double aranceldeTransporte(double precioFinal){
+        double importe = (precioFinal*2)/100;
+        return importe;
+    }
 }
