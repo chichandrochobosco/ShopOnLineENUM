@@ -83,7 +83,7 @@ public class Main {
         Scanner in = new Scanner(System.in);
         int ingresar=0, op, codC, ing=0;
         String nombre;
-        ArrayList<Producto> ven = new ArrayList();
+        ArrayList<Producto> ven = new ArrayList();// SOBRA
         
         do{
         
@@ -119,6 +119,7 @@ public class Main {
             ingresar = in.nextInt();
             in.nextLine();
             if(ingresar!=0){
+                // EL MÉTODO CALCULARIMPORTETOTAL, deberías invocarlo desde em imprimirFactura
                venta.calcularImporteTotal();
                venta.imprimirFactura(); 
             }
@@ -131,6 +132,7 @@ public class Main {
     }
     
     public static void main(String[] args) {
+        // AGREGAR MENÚ
         ingresarProductos();
         venta();
     }
